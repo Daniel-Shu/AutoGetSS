@@ -1,5 +1,5 @@
 import json
-import requests 
+import requests
 from bs4 import BeautifulSoup
 import hashlib
 import random
@@ -14,17 +14,17 @@ def getHtmltext(url):
     htmltempdata = requests.get(url).text
     print('获取信息完毕！')
     return htmltempdata
-    
+
 def getRandomMd5():
     """生成随机MD5作为ID"""
     hash = hashlib.md5()
     hash.update(str(random.random()).encode('utf-8'))
     return hash.hexdigest().upper()
-    
+
 def getBase64(src):
     '''返回字符串的base64编码'''
     return base64.b64encode(src.encode(encoding="utf-8")).decode()
-    
+
 def getConfig(htmldata):
     '''解析数据提取信息'''
     print('正在解析数据……')
@@ -71,7 +71,7 @@ def loadConfig(filename):
         msg = "文件 " + filename + " 并不存在，请确认程序运行在ShadowsocksR目录中！"
         print(msg)
     return guiconfig
-    
+
 def saveConfig(filename,data):
     print('正在写入文件……')
     try:
@@ -81,7 +81,7 @@ def saveConfig(filename,data):
         msg = "文件 " + filename + " 并不存在，请确认程序运行在ShadowsocksR目录中！"
         print(msg)
     print('写入文件完成！')
-    return 0 
+    return 0
 
 url='https://doub.io/sszhfx/'
 filename='gui-config.json'
